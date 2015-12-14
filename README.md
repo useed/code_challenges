@@ -1,7 +1,7 @@
 # Code Challenges
 Learning Days 2.0 - team-wide learning through our weekly [#dev-challenge](https://useed.slack.com/messages/dev-challenge/).
 
-# Contributiung
+# Contributing
 ## Questions
 To create a new question, simply add a new folder to the `questions` directory. You should include a README.md file which explains the question, parameters of the solution, and any resources associated with the question.
 

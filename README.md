@@ -20,4 +20,4 @@ The following "rules" help guide our learning:
 
 # Previous Challenges
 
-* **Week of 2015-12-14** - `advent_of_code_day_3` via @robcole
+* **Week of 2015-12-14** - [`advent_of_code_day_3`](https://github.com/useed/code_challenges/tree/master/questions/advent_of_code_day_3) via @robcole

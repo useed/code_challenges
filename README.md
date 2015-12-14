@@ -6,7 +6,9 @@ Learning Days 2.0 - team-wide learning through our weekly [#dev-challenge](https
 To create a new question, simply add a new folder to the `questions` directory. You should include a README.md file which explains the question, parameters of the solution, and any resources associated with the question.
 
 ## Solutions
-Provide your solutions in the questions directory. Use a file or directory naming convention that contains your GitHub username.
+Provide your code solutions in the questions directory. Use a file or directory naming convention that contains your GitHub username.
+
+Answers (with no code) will be provided in the challenge folder with a corresponding answers.txt, when appropriate. The *point* of these exercises is to have fun and try different things than you normally would, so answers should only be used to validate an approach you have.
 
 ## Guidelines
 The following "rules" help guide our learning:

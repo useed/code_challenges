@@ -9,11 +9,32 @@ class SantaDelivery
     "v" => [0,-1],
     "<" => [-1,0]
   }
-  attr_accessor :coordinates, :houses
+  attr_accessor :coordinates, :houses, :robo_coordinates, :instructions
 
-  def initialize
+  def initialize(instructions, robo_delivery=false)
+    @instructions = instructions
+    @robo_delivery = robo_delivery
     @coordinates = [0,0]
-    @houses = Set.new([0,0])
+    @robo_coordinates = [0,0]
+    @houses = Set.new([[0,0]])
+  end
+
+  def deliver_presents!
+    if @robo_delivery
+      deliver_with_robo_santa
+    else
+      @instructions.each_char{|c| move_santa(c) }
+    end
+  end
+
+  def deliver_with_robo_santa
+    @instructions.split('').each_with_index do |c, i|
+      if (i+1).odd?
+        move_santa(c)
+      else
+        move_robo_santa(c)
+      end
+    end
   end
 
   def move_santa(direction)
@@ -21,14 +42,22 @@ class SantaDelivery
     @houses.add(@coordinates)
   end
 
-  def new_coordinates(direction)
-    [SantaDelivery::MOVES[direction],@coordinates].transpose.map{|a| a.reduce(:+)}
+  def move_robo_santa(direction)
+    @robo_coordinates = new_coordinates(direction, @robo_coordinates)
+    @houses.add(@robo_coordinates)
+  end
+
+  def new_coordinates(direction, coordinates=nil)
+    coordinates ||= @coordinates
+    [SantaDelivery::MOVES[direction],coordinates].transpose.map{|a| a.reduce(:+)}
   end
 
 end
 
-delivery = SantaDelivery.new
+solution1 = SantaDelivery.new(moves)
+solution1.deliver_presents!
+solution2 = SantaDelivery.new(moves, true)
+solution2.deliver_presents!
 
-moves.each_char{|c| delivery.move_santa(c)}
-
-puts delivery.houses.length
+puts "Solution 1: #{solution1.houses.length}"
+puts "Solution 2: #{solution2.houses.length}"
